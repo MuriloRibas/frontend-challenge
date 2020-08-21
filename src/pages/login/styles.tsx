@@ -55,9 +55,8 @@ export const LoginFormSubmit = styled.button`
     border: none;
     font-weight: ${props => props.theme.font.weight.bold};
     font-size: ${props => props.theme.font.size.minimal};
-
+    transition: opacity 0.25s;
     &:hover {
-        transition: opacity 0.25s;
         cursor: pointer;
         opacity: 0.9;
     }

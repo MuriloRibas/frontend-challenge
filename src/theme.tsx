@@ -5,6 +5,7 @@ export const theme = {
     },
     font: {
         size: {
+            high: '40px',
             default: '16px',
             minimal: '14px'
         },

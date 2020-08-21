@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const NavContainer = styled.nav`
-    width: calc(100vw - 64px);
+    width: 100%;
     height: 85px;
-    padding: 0px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
