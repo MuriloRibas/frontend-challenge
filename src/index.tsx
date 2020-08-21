@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import { GlobalStyle } from './globalStyle';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
-import LoginPage from './pages/login/index';
+import Routes from './routes';
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyle/>
-      <LoginPage/>
+      <Routes/>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
