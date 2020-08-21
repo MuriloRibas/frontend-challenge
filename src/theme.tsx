@@ -6,7 +6,7 @@ export const theme = {
     font: {
         size: {
             default: '16px',
-            label: '14px'
+            minimal: '14px'
         },
         weight: {
             regular: 'normal',
