@@ -14,5 +14,9 @@ export const NavButton = styled.button`
     background-color: white;
     font-size: ${props => props.theme.font.size.minimal};
     font-weight: ${props => props.theme.font.weight.bold};
-
+    transition: opacity 0.25s;
+    &:hover {
+        cursor: pointer;
+        opacity: 0.5;
+    }
 `

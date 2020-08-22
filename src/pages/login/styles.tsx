@@ -35,6 +35,7 @@ export const LoginFormLabel = styled.label`
     font-size: ${props => props.theme.font.size.minimal};
     font-weight: ${props => props.theme.font.weight.bold};
     color: ${props => props.theme.colors.primary};
+    line-height: 18px;
 `
 
 export const LoginFormInput = styled.input`
@@ -55,6 +56,7 @@ export const LoginFormSubmit = styled.button`
     border: none;
     font-weight: ${props => props.theme.font.weight.bold};
     font-size: ${props => props.theme.font.size.minimal};
+    line-height: 24px;
     transition: opacity 0.25s;
     &:hover {
         cursor: pointer;

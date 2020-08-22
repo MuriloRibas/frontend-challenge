@@ -1,9 +1,16 @@
 import React from 'react'
+import { NaversListContainer } from './styles';
+import { NaverComponent } from '../naver';
 
-export const NaversList: React.FC = () => {
+export const NaversListComponent: React.FC = () => {
     return (
-        <div>
-            
-        </div>
+        <NaversListContainer>
+            <NaverComponent/>
+            <NaverComponent/>
+            <NaverComponent/>
+            <NaverComponent/>
+            <NaverComponent/>
+
+        </NaversListContainer>
     )
 }
