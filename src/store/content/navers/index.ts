@@ -1,4 +1,4 @@
-import { REQUEST_NAVERS_SUCCESS } from "./types"
+import { REQUEST_NAVERS_SUCCESS, SHOW_ADD, SHOW_NAVERS, REQUEST_ADD_NAVER_SUCCESS, REQUEST_ADD_NAVER_FAILURE, REQUEST_NAVERS_FAILURE } from "./types"
 
 const initialState = {
     data: [
@@ -11,14 +11,51 @@ const initialState = {
             birthdate: '',
             url: ''
         }
-    ]
+    ],
+    loading: false,
+    hasErr: false,
+    naverSuccess: false,
+    show: 'navers'
 }
 
 export default function Navers(state = initialState, action: any) {
     switch(action.type) {
         case REQUEST_NAVERS_SUCCESS:
             return {
+                ...state,
+                loading: false,
+                hasErr: false,
                 data: action.data
+            }
+        case REQUEST_NAVERS_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                hasErr: true 
+            }
+        case REQUEST_ADD_NAVER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                hasErr: false,
+                naverSuccess: true
+            }
+        case REQUEST_ADD_NAVER_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                hasErr: true,
+                naverSuccess: false
+            }
+        case SHOW_ADD:
+            return {
+                ...state,
+                show: 'add'
+            }
+        case SHOW_NAVERS:
+            return {
+                ...state,
+                show: 'navers'
             }
         default: return state
     }

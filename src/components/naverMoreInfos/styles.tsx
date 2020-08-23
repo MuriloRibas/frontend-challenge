@@ -46,7 +46,6 @@ export const InfosSideContainer = styled.div`
 
 export const InfosInside = styled.div`
     width: auto;
-    height: 45px;
     display: flex;
     flex-flow: column;
     margin-bottom: 24px;

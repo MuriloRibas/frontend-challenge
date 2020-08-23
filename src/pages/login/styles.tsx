@@ -27,24 +27,6 @@ export const LoginForm = styled.form`
     }
 `;
 
-export const LoginFormInputContainer = styled.div`
-    width: 100%;
-`
-
-export const LoginFormLabel = styled.label`
-    font-size: ${props => props.theme.font.size.minimal};
-    font-weight: ${props => props.theme.font.weight.bold};
-    color: ${props => props.theme.colors.primary};
-    line-height: 18px;
-`
-
-export const LoginFormInput = styled.input`
-    border: 1px solid ${props => props.theme.colors.inputBorder};
-    width: calc(100% - 10px);
-    height: 40px;
-    padding-left: 7px;
-`  
-
 export const LoginFormSubmit = styled.button`
     width: 100%;
     height: 40px;

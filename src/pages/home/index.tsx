@@ -6,6 +6,9 @@ import { HomeContainer } from './styles';
 import { NaversListComponent } from '../../components/naversList/index';
 import { requestNavers } from '../../store/content/navers/actions';
 import { NaversI } from '../../store/content/navers/types';
+import { AddComponent } from '../../components/add';
+import ModalComponent from '../../components/modal';
+import { PrimaryButton, SecondaryButton } from '../../components/modal/styles';
 
 const HomePage: React.FC = () => {
 
@@ -21,10 +24,24 @@ const HomePage: React.FC = () => {
     return (
         <HomeContainer>
             <NavbarComponent/>
-            <NaversOptionsComponent />
-            <NaversListComponent
-                data={naversStore.data}
-            />
+            {
+                naversStore.show === 'navers' && 
+                    <>
+                        <NaversOptionsComponent />
+                        <NaversListComponent
+                            data={naversStore.data}
+                        />
+                        {/* <ModalComponent header="Naver criado" content="Naver criado com sucessosssssssssssssssssssssssssssssssssssssss!">
+                            <SecondaryButton>Sair</SecondaryButton>
+                            <PrimaryButton>Confirmar</PrimaryButton>
+                        </ModalComponent> */}
+                    </>
+            }
+
+            {
+                naversStore.show === 'add' && 
+                    <AddComponent/>
+            }
         </HomeContainer>
     )
 }
