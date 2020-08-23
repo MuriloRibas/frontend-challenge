@@ -6,6 +6,7 @@ export const theme = {
     font: {
         size: {
             high: '40px',
+            medium: '24px',
             default: '16px',
             minimal: '14px'
         },
