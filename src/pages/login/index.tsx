@@ -1,9 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux'
 import logo from '../../assets/logo.png'
 import { LayoutContainer, LoginForm, LoginFormLabel, LoginFormInputContainer, LoginFormInput, LoginFormSubmit } from './styles';
+import { requestLogin } from '../../store/content/auth/actions';
+import { AuthI } from '../../store/content/auth/types';
+import { useHistory } from 'react-router';
 
 const LoginPage: React.FC = () => {
 
+    const authStoreTyped: TypedUseSelectorHook<AuthI> = useSelector;
+    const authStore = authStoreTyped(state => state.Auth);
+    const history = useHistory();
+
+    const dispatch = useDispatch()
     const [inputs, setInputs] = useState<{email: string, password: string}>({
         email: '',
         password: ''
@@ -12,13 +21,22 @@ const LoginPage: React.FC = () => {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => setInputs({ ...inputs, [e.target.name]: e.target.value})
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        console.log('Submit!')
+        e.preventDefault();
+        return dispatch(requestLogin(inputs.email, inputs.password))
     }
+
+    useEffect(() => {
+        function efFunc() {
+            if (authStore.isSignedIn) {
+                history.push('/home')
+            }  
+        }
+        return efFunc()
+    }, [authStore])
 
     return (
         <LayoutContainer>
-
+            { authStore.hasErr && <h1>Email ou senha incorretos.</h1>}
             <LoginForm onSubmit={(e) => handleSubmit(e)}>
 
                 <img src={logo} alt="Logo da empresa"/>
@@ -44,7 +62,7 @@ const LoginPage: React.FC = () => {
                     <LoginFormInput 
                         id="password" 
                         name="password" 
-                        type="text" 
+                        type="password" 
                         value={inputs.password}
                         onChange={(e) => handleInputChange(e)}
                         placeholder="Senha"
