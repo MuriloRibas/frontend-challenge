@@ -1,4 +1,4 @@
-import { REQUEST_LOGIN_SUCCESS, LOADING, REQUEST_LOGIN_FAILURE } from "./types"
+import { REQUEST_LOGIN_SUCCESS, LOADING, REQUEST_LOGIN_FAILURE, LOGOUT } from "./types"
 
 const initialState = {
     token: undefined,
@@ -28,6 +28,13 @@ export default function Auth(state = initialState, action: any) {
                 token: undefined,
                 isSignedIn: false,
                 hasErr: true,
+                loading: false
+            }
+        case LOGOUT:
+            return {
+                token: undefined,
+                isSignedIn: false,
+                hasErr: false,
                 loading: false
             }
         default: return state

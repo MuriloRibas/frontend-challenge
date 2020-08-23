@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { ThunkAction } from "redux-thunk";
-import { REQUEST_LOGIN_SUCCESS, REQUEST_LOGIN_FAILURE } from './types';
+import { REQUEST_LOGIN_SUCCESS, REQUEST_LOGIN_FAILURE, LOGOUT } from './types';
 
 type Actions = { type: string };
 type ThunkResult<R> = ThunkAction<R, undefined, undefined, Actions>;
@@ -25,4 +25,8 @@ export function requestLogin(email: string, password: string):ThunkResult<void> 
                 (err) => dispatch({ type: REQUEST_LOGIN_FAILURE })
             )
     };
+}
+
+export function logout() {
+    return { type: LOGOUT }
 }
