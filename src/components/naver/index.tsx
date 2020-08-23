@@ -1,13 +1,14 @@
 import React from 'react'
 import { NaverCard, NaverImage, NaverJob, NaverName, NaverSvgContainer } from './styles';
+import {NaverI} from '../../store/content/navers/types'
 import person from '../../assets/generic-person.jpg'
 
-export const NaverComponent: React.FC = () => {
+export const NaverComponent: React.FC<NaverI> = ({ children, name, admission_date, job_role, user_id, project, birthdate, url }) => {
     return (
         <NaverCard>
-            <NaverImage src={person} alt=""/>
-            <NaverName>Juliano Reis</NaverName>
-            <NaverJob>Front-end Developer</NaverJob>
+            <NaverImage src={url} alt={name}/>
+            <NaverName>{name}</NaverName>
+            <NaverJob>{job_role}</NaverJob>
             <NaverSvgContainer>
                 <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 18H13V4H1V18ZM14 1H10.5L9.5 0H4.5L3.5 1H0V3H14V1Z" fill="#212121"/>
