@@ -8,8 +8,6 @@ import { requestNavers } from '../../store/content/navers/actions';
 import { NaversI } from '../../store/content/navers/types';
 import { AddComponent } from '../../components/add';
 import ModalComponent from '../../components/modal';
-import { PrimaryButton, SecondaryButton } from '../../components/modal/styles';
-import { ModalsI } from '../../store/content/modals/types';
 import { EditComponent } from '../../components/edit';
 
 const HomePage: React.FC = () => {

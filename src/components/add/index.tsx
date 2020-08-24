@@ -1,14 +1,10 @@
 import React, { useState } from 'react'
 import { Container, AddForm, HeaderContainer, ButtonSubmit } from './styles'
 import { showNavers, addNaver } from '../../store/content/navers/actions'
-import { useDispatch, TypedUseSelectorHook, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Label, Input, InputAndLabelContainer } from '../formUtils'
-import { NaversI } from '../../store/content/navers/types'
-import ModalComponent from '../modal'
 
 export const AddComponent: React.FC = () => {
-    const naversStoreTyped: TypedUseSelectorHook<NaversI> = useSelector;
-    const naversStore = naversStoreTyped(state => state.Navers);
 
     const [inputs, setInputs] = useState({
         name: '',

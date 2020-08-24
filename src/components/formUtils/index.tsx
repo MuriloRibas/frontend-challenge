@@ -16,6 +16,8 @@ export const Input = styled.input`
     width: calc(100% - 10px);
     height: 40px;
     padding-left: 7px;
+    margin-top: 4px;
+
 `  
 
 export const InputAndLabelContainer = styled.div<InputAndLabelContainerI>`

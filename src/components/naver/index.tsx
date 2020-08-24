@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { NaverCard, NaverImage, NaverJob, NaverName, NaverSvgContainer } from './styles';
 import {NaverI} from '../../store/content/navers/types'
 import NaverMoreInfosComponent from '../naverMoreInfos'
-import person from '../../assets/generic-person.jpg'
-import { TypedUseSelectorHook } from 'react-redux';
-import { ModalsI } from '../../store/content/modals/types';
 import { showModal } from '../../store/content/modals/actions';
 import { showEdit } from '../../store/content/navers/actions';
 
@@ -14,9 +11,6 @@ export const NaverComponent: React.FC<NaverI> = ({ children, id, name, admission
 
     const handleUserInfosShowing = () => setIsUserInfosShowin(!isUserInfosShowing)
     const dispatch = useDispatch()
-
-    const modalsStoreTyped: TypedUseSelectorHook<ModalsI> = useSelector;
-    const modalsStore = modalsStoreTyped(state => state.Modals);
 
     const callShowModal = () => dispatch(showModal('confirm_delete', 'Excluir Naver', 'Tem certeza que deseja excluir este Naver?', { id }))
     const callShowEdit = () => dispatch(showEdit(id))
