@@ -9,6 +9,8 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 99999;
+
     ::after {
         content: "";
         position: absolute;
@@ -25,11 +27,12 @@ export const ModalWrapper = styled.div`
     width: 592px;
     height: auto;
     background-color: white;
-    z-index: 999;
     display: flex;
     flex-flow: column;
     padding: 32px;
     position: relative;
+    z-index: 999999;
+
 `
 
 export const ModalHeader = styled.h1`

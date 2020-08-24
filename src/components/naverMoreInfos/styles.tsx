@@ -9,6 +9,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 999;
     ::after {
         content: "";
         position: absolute;
@@ -81,4 +82,7 @@ export const ContainerBottomIcons = styled.div`
     display: flex;
     justify-content: space-around;
     width: 59px;
+    &:hover {
+        cursor: pointer;
+    }
 `

@@ -21,7 +21,7 @@ const HomePage: React.FC = () => {
     
     useEffect(() => {
         dispatch(requestNavers())
-    }, [naversStore])
+    }, [naversStore.show])
 
     return (
         <>
