@@ -1,4 +1,4 @@
-import { REQUEST_NAVERS_SUCCESS, SHOW_ADD, SHOW_NAVERS, REQUEST_ADD_NAVER_SUCCESS, REQUEST_ADD_NAVER_FAILURE, REQUEST_NAVERS_FAILURE } from "./types"
+import { REQUEST_NAVERS_SUCCESS, SHOW_ADD, SHOW_NAVERS, REQUEST_ADD_NAVER_SUCCESS, REQUEST_ADD_NAVER_FAILURE, REQUEST_NAVERS_FAILURE, REQUEST_DELETE_NAVER_FAILURE, REQUEST_DELETE_NAVER_SUCCESS, SHOW_EDIT, REQUEST_EDIT_NAVER_SUCCESS, REQUEST_EDIT_NAVER_FAILURE } from "./types"
 
 const initialState = {
     data: [
@@ -47,6 +47,18 @@ export default function Navers(state = initialState, action: any) {
                 hasErr: true,
                 naverSuccess: false
             }
+        case REQUEST_DELETE_NAVER_SUCCESS || REQUEST_EDIT_NAVER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                hasErr: false
+            }
+        case REQUEST_DELETE_NAVER_FAILURE || REQUEST_EDIT_NAVER_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                hasErr: true
+            }
         case SHOW_ADD:
             return {
                 ...state,
@@ -56,6 +68,12 @@ export default function Navers(state = initialState, action: any) {
             return {
                 ...state,
                 show: 'navers'
+            }
+        case SHOW_EDIT:
+            return {
+                ...state,
+                show: 'edit',
+                id_editing: action.id_editing
             }
         default: return state
     }

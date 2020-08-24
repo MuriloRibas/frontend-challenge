@@ -9,6 +9,8 @@ import { NaversI } from '../../store/content/navers/types';
 import { AddComponent } from '../../components/add';
 import ModalComponent from '../../components/modal';
 import { PrimaryButton, SecondaryButton } from '../../components/modal/styles';
+import { ModalsI } from '../../store/content/modals/types';
+import { EditComponent } from '../../components/edit';
 
 const HomePage: React.FC = () => {
 
@@ -19,30 +21,35 @@ const HomePage: React.FC = () => {
     
     useEffect(() => {
         dispatch(requestNavers())
-    }, [])
+    }, [naversStore])
 
     return (
-        <HomeContainer>
-            <NavbarComponent/>
-            {
-                naversStore.show === 'navers' && 
-                    <>
-                        <NaversOptionsComponent />
-                        <NaversListComponent
-                            data={naversStore.data}
-                        />
-                        {/* <ModalComponent header="Naver criado" content="Naver criado com sucessosssssssssssssssssssssssssssssssssssssss!">
-                            <SecondaryButton>Sair</SecondaryButton>
-                            <PrimaryButton>Confirmar</PrimaryButton>
-                        </ModalComponent> */}
-                    </>
-            }
+        <>
+            <ModalComponent/>
+            <HomeContainer>
+                <NavbarComponent/>
 
-            {
-                naversStore.show === 'add' && 
-                    <AddComponent/>
-            }
-        </HomeContainer>
+                {
+                    naversStore.show === 'navers' && 
+                        <>
+                            <NaversOptionsComponent />
+                            <NaversListComponent
+                                data={naversStore.data}
+                            />
+                        </>
+                }
+
+                {
+                    naversStore.show === 'edit' && 
+                        <EditComponent/>
+                }
+
+                {
+                    naversStore.show === 'add' && 
+                        <AddComponent/>
+                }
+            </HomeContainer>
+        </>
     )
 }
 

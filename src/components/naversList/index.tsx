@@ -9,6 +9,7 @@ export const NaversListComponent: React.FC<{data: [NaverI]}> = ({ children, data
             {
                 data.map((el, i) => 
                     <NaverComponent 
+                        id={el.id}
                         key={i}
                         name={el.name}
                         admission_date={el.admission_date}
