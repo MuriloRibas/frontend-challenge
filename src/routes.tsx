@@ -18,6 +18,7 @@ const Routes: React.FC = () => {
     return (
         <Router>
             <Switch>
+                <Route exact path="/" component={LoginPage}/>
                 <Route exact path="/login" component={LoginPage}/>
                 <PrivateRoute exact path="/home" isSignedIn={authStore.isSignedIn} component={HomePage}/>
             </Switch>
