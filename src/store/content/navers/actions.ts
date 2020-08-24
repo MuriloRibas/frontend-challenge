@@ -21,7 +21,7 @@ const requestApi = (url: string, method: any, token?: string, data?: any) => {
 } 
 
 export function requestNavers():ThunkResult<void> {
-    return (dispatch: any, getState) => {
+    return (dispatch, getState) => {
         const token = getState().Auth.token
         return requestApi('/navers', 'GET', token)
             .then(
@@ -32,7 +32,7 @@ export function requestNavers():ThunkResult<void> {
 }
 
 export function addNaver(data: any):ThunkResult<void> {
-    return (dispatch: any, getState) => {
+    return (dispatch, getState) => {
         const token = getState().Auth.token
         return requestApi('/navers', 'POST', token, data)
             .then(
@@ -49,7 +49,7 @@ export function addNaver(data: any):ThunkResult<void> {
 }
 
 export function deleteNaver(id: string):ThunkResult<void> {
-    return (dispatch: any, getState) => {
+    return (dispatch, getState) => {
         const token = getState().Auth.token
         return requestApi(`/navers/${id}`, 'DELETE', token)
             .then(
@@ -67,7 +67,7 @@ export function deleteNaver(id: string):ThunkResult<void> {
 }
 
 export function editNaver(id: string | undefined, data: any):ThunkResult<void> {
-    return (dispatch: any, getState) => {
+    return (dispatch, getState) => {
         const token = getState().Auth.token
         return requestApi(`/navers/${id}`, 'PUT', token, data)
             .then(

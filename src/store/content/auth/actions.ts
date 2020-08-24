@@ -18,7 +18,7 @@ const requestApi = (email: string, password: string) => {
 } 
 
 export function requestLogin(email: string, password: string):ThunkResult<void> {
-    return (dispatch: any) => {
+    return (dispatch) => {
         return requestApi(email, password)
             .then(
                 (sauce) => dispatch({ type: REQUEST_LOGIN_SUCCESS, token: sauce.data.token }),
